@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: analytics
+    database: dev
+    schema: analytics
+    description: "Schema with merged data"
+    tables:
+      - name: weather_forecast_processed
+        identifier: weather_forecast_processed
+      - name: electricity_weather_historical
+        identifier: 
+      - name: electricity_data_forecast
+        identifier: electricity_data_forecast
+
+      

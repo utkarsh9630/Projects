@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: electricity_weather_historical
+    description: "Merged table with historical energy and weather data before Snowflake train & predict"
+    columns:
+      - name: period
+        description: "Date"
+        tests:
+          - not_null
+
+    

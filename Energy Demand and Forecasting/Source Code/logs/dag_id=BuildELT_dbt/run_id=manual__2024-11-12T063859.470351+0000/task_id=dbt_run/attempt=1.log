@@ -1,0 +1,43 @@
+[2024-11-12T06:39:02.334+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-12T06:39:02.445+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T06:38:59.470351+00:00 [queued]>
+[2024-11-12T06:39:02.467+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T06:38:59.470351+00:00 [queued]>
+[2024-11-12T06:39:02.468+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-12T06:39:02.506+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-11-12 06:38:59.470351+00:00
+[2024-11-12T06:39:02.523+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'BuildELT_dbt', 'dbt_run', 'manual__2024-11-12T06:38:59.470351+00:00', '--job-id', '162', '--raw', '--subdir', 'DAGS_FOLDER/build_elt_with_dbt.py', '--cfg-path', '/tmp/tmpro7kkqxi']
+[2024-11-12T06:39:02.527+0000] {standard_task_runner.py:91} INFO - Job 162: Subtask dbt_run
+[2024-11-12T06:39:02.570+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5870) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-12T06:39:02.573+0000] {standard_task_runner.py:63} INFO - Started process 5873 to run task
+[2024-11-12T06:39:02.634+0000] {task_command.py:426} INFO - Running <TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T06:38:59.470351+00:00 [running]> on host e9e87141c083
+[2024-11-12T06:39:03.076+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='BuildELT_dbt' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-11-12T06:38:59.470351+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-12T06:38:59.470351+00:00'
+[2024-11-12T06:39:03.080+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-12T06:39:03.129+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-12T06:39:03.136+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-12T06:39:03.157+0000] {subprocess.py:86} INFO - Output:
+[2024-11-12T06:39:08.831+0000] {subprocess.py:93} INFO - [0m06:39:08  Running with dbt=1.8.7
+[2024-11-12T06:39:10.975+0000] {subprocess.py:93} INFO - [0m06:39:10  Registered adapter: snowflake=1.8.4
+[2024-11-12T06:39:12.363+0000] {subprocess.py:93} INFO - [0m06:39:12  Found 5 models, 2 data tests, 1 snapshot, 2 sources, 459 macros
+[2024-11-12T06:39:12.368+0000] {subprocess.py:93} INFO - [0m06:39:12
+[2024-11-12T06:39:15.099+0000] {subprocess.py:93} INFO - [0m06:39:15  Concurrency: 1 threads (target='dev')
+[2024-11-12T06:39:15.101+0000] {subprocess.py:93} INFO - [0m06:39:15
+[2024-11-12T06:39:15.122+0000] {subprocess.py:93} INFO - [0m06:39:15  1 of 5 START sql view model analytics.stock_table .............................. [RUN]
+[2024-11-12T06:39:17.178+0000] {subprocess.py:93} INFO - [0m06:39:17  1 of 5 OK created sql view model analytics.stock_table ......................... [[32mSUCCESS 1[0m in 2.05s]
+[2024-11-12T06:39:17.186+0000] {subprocess.py:93} INFO - [0m06:39:17  2 of 5 START sql view model analytics.daily_price_return ....................... [RUN]
+[2024-11-12T06:39:18.146+0000] {subprocess.py:93} INFO - [0m06:39:18  2 of 5 OK created sql view model analytics.daily_price_return .................. [[32mSUCCESS 1[0m in 0.95s]
+[2024-11-12T06:39:18.153+0000] {subprocess.py:93} INFO - [0m06:39:18  3 of 5 START sql view model analytics.stock_summary ............................ [RUN]
+[2024-11-12T06:39:19.219+0000] {subprocess.py:93} INFO - [0m06:39:19  3 of 5 OK created sql view model analytics.stock_summary ....................... [[32mSUCCESS 1[0m in 1.06s]
+[2024-11-12T06:39:19.226+0000] {subprocess.py:93} INFO - [0m06:39:19  4 of 5 START sql view model analytics.stock_trend .............................. [RUN]
+[2024-11-12T06:39:20.137+0000] {subprocess.py:93} INFO - [0m06:39:20  4 of 5 OK created sql view model analytics.stock_trend ......................... [[32mSUCCESS 1[0m in 0.91s]
+[2024-11-12T06:39:20.144+0000] {subprocess.py:93} INFO - [0m06:39:20  5 of 5 START sql table model analytics.stock_indicators ........................ [RUN]
+[2024-11-12T06:39:22.021+0000] {subprocess.py:93} INFO - [0m06:39:22  5 of 5 OK created sql table model analytics.stock_indicators ................... [[32mSUCCESS 1[0m in 1.87s]
+[2024-11-12T06:39:22.031+0000] {subprocess.py:93} INFO - [0m06:39:22
+[2024-11-12T06:39:22.033+0000] {subprocess.py:93} INFO - [0m06:39:22  Finished running 4 view models, 1 table model in 0 hours 0 minutes and 9.66 seconds (9.66s).
+[2024-11-12T06:39:22.151+0000] {subprocess.py:93} INFO - [0m06:39:22
+[2024-11-12T06:39:22.153+0000] {subprocess.py:93} INFO - [0m06:39:22  [32mCompleted successfully[0m
+[2024-11-12T06:39:22.156+0000] {subprocess.py:93} INFO - [0m06:39:22
+[2024-11-12T06:39:22.158+0000] {subprocess.py:93} INFO - [0m06:39:22  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[2024-11-12T06:39:23.135+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-11-12T06:39:23.140+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-12T06:39:23.183+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=BuildELT_dbt, task_id=dbt_run, run_id=manual__2024-11-12T06:38:59.470351+00:00, execution_date=20241112T063859, start_date=20241112T063902, end_date=20241112T063923
+[2024-11-12T06:39:23.259+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-12T06:39:23.313+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-12T06:39:23.319+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

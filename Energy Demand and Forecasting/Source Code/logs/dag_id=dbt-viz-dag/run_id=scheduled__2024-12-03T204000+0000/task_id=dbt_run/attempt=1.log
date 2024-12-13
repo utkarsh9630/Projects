@@ -1,0 +1,43 @@
+[2024-12-05T07:37:05.174+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-05T07:37:05.446+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_run scheduled__2024-12-03T20:40:00+00:00 [queued]>
+[2024-12-05T07:37:05.466+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_run scheduled__2024-12-03T20:40:00+00:00 [queued]>
+[2024-12-05T07:37:05.468+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-05T07:37:05.512+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-12-03 20:40:00+00:00
+[2024-12-05T07:37:05.526+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt-viz-dag', 'dbt_run', 'scheduled__2024-12-03T20:40:00+00:00', '--job-id', '517', '--raw', '--subdir', 'DAGS_FOLDER/dbt-viz-dag.py', '--cfg-path', '/tmp/tmpn35dkh17']
+[2024-12-05T07:37:05.531+0000] {standard_task_runner.py:91} INFO - Job 517: Subtask dbt_run
+[2024-12-05T07:37:05.544+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1357) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-05T07:37:05.546+0000] {standard_task_runner.py:63} INFO - Started process 1360 to run task
+[2024-12-05T07:37:05.618+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt-viz-dag.dbt_run scheduled__2024-12-03T20:40:00+00:00 [running]> on host e060654747dc
+[2024-12-05T07:37:05.944+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt-viz-dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-12-03T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-03T20:40:00+00:00'
+[2024-12-05T07:37:05.946+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-05T07:37:06.039+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-05T07:37:06.044+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt_viz --project-dir /opt/***/dbt_viz']
+[2024-12-05T07:37:06.081+0000] {subprocess.py:86} INFO - Output:
+[2024-12-05T07:37:12.136+0000] {subprocess.py:93} INFO - [0m07:37:12  Running with dbt=1.8.7
+[2024-12-05T07:37:17.937+0000] {subprocess.py:93} INFO - [0m07:37:17  Registered adapter: snowflake=1.8.4
+[2024-12-05T07:37:19.787+0000] {subprocess.py:93} INFO - [0m07:37:19  Encountered an error:
+[2024-12-05T07:37:19.787+0000] {subprocess.py:93} INFO - Compilation Error in snapshot energy_demand_final_snapshot (snapshots/energy_demand_final_snapshot.sql)
+[2024-12-05T07:37:19.789+0000] {subprocess.py:93} INFO -   expected token ',', got 'invalidate_hard_deletes'
+[2024-12-05T07:37:19.789+0000] {subprocess.py:93} INFO -     line 9
+[2024-12-05T07:37:19.790+0000] {subprocess.py:93} INFO -       invalidate_hard_deletes=True
+[2024-12-05T07:37:21.004+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-12-05T07:37:21.025+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-05T07:37:21.041+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-12-05T07:37:21.070+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt-viz-dag, task_id=dbt_run, run_id=scheduled__2024-12-03T20:40:00+00:00, execution_date=20241203T204000, start_date=20241205T073705, end_date=20241205T073721
+[2024-12-05T07:37:21.111+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 517 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 1360)
+[2024-12-05T07:37:21.162+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-05T07:37:21.194+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-05T07:37:21.202+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

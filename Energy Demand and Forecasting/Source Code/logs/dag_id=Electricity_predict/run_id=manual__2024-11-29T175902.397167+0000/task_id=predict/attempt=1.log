@@ -1,0 +1,61 @@
+[2024-11-29T17:59:07.730+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-29T17:59:07.794+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Electricity_predict.predict manual__2024-11-29T17:59:02.397167+00:00 [queued]>
+[2024-11-29T17:59:07.811+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Electricity_predict.predict manual__2024-11-29T17:59:02.397167+00:00 [queued]>
+[2024-11-29T17:59:07.813+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-29T17:59:07.841+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): predict> on 2024-11-29 17:59:02.397167+00:00
+[2024-11-29T17:59:07.855+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Electricity_predict', 'predict', 'manual__2024-11-29T17:59:02.397167+00:00', '--job-id', '270', '--raw', '--subdir', 'DAGS_FOLDER/energy_usage_prediction.py', '--cfg-path', '/tmp/tmp2rya59kz']
+[2024-11-29T17:59:07.857+0000] {standard_task_runner.py:91} INFO - Job 270: Subtask predict
+[2024-11-29T17:59:07.866+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=10560) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-29T17:59:07.868+0000] {standard_task_runner.py:63} INFO - Started process 10569 to run task
+[2024-11-29T17:59:07.958+0000] {task_command.py:426} INFO - Running <TaskInstance: Electricity_predict.predict manual__2024-11-29T17:59:02.397167+00:00 [running]> on host fd43cd87157f
+[2024-11-29T17:59:08.117+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Electricity_predict' AIRFLOW_CTX_TASK_ID='predict' AIRFLOW_CTX_EXECUTION_DATE='2024-11-29T17:59:02.397167+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-29T17:59:02.397167+00:00'
+[2024-11-29T17:59:08.119+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-29T17:59:29.545+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-29T17:59:29.546+0000] {energy_usage_prediction.py:111} INFO - prediction created
+[2024-11-29T17:59:30.682+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-29T17:59:30.684+0000] {energy_usage_prediction.py:113} INFO - Joined weather_forecast and electricity_forecast
+[2024-11-29T17:59:30.889+0000] {logging_mixin.py:188} INFO - 001789 (42601): 01b8b337-0004-3863-0002-595300031b0a: SQL compilation error:
+invalid number of result columns for set operator input branches, expected 10, got 9 in branch 2
+[2024-11-29T17:59:30.890+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-29T17:59:30.891+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/energy_usage_prediction.py", line 114, in predict
+    cur.execute(create_final_table_sql)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 001789 (42601): 01b8b337-0004-3863-0002-595300031b0a: SQL compilation error:
+invalid number of result columns for set operator input branches, expected 10, got 9 in branch 2
+[2024-11-29T17:59:30.910+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Electricity_predict, task_id=predict, run_id=manual__2024-11-29T17:59:02.397167+00:00, execution_date=20241129T175902, start_date=20241129T175907, end_date=20241129T175930
+[2024-11-29T17:59:30.938+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 270 for task predict (001789 (42601): 01b8b337-0004-3863-0002-595300031b0a: SQL compilation error:
+invalid number of result columns for set operator input branches, expected 10, got 9 in branch 2; 10569)
+[2024-11-29T17:59:30.963+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-29T17:59:30.989+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-29T17:59:30.994+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

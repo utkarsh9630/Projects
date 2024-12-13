@@ -1,0 +1,54 @@
+[2024-11-26T18:01:46.469+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-26T18:01:46.495+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Electricity-Fetch-Load.load_electricity_data manual__2024-11-26T18:01:13.758530+00:00 [queued]>
+[2024-11-26T18:01:46.503+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Electricity-Fetch-Load.load_electricity_data manual__2024-11-26T18:01:13.758530+00:00 [queued]>
+[2024-11-26T18:01:46.503+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-26T18:01:46.518+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_electricity_data> on 2024-11-26 18:01:13.758530+00:00
+[2024-11-26T18:01:46.529+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Electricity-Fetch-Load', 'load_electricity_data', 'manual__2024-11-26T18:01:13.758530+00:00', '--job-id', '198', '--raw', '--subdir', 'DAGS_FOLDER/electricity-dag.py', '--cfg-path', '/tmp/tmpd_da2gl8']
+[2024-11-26T18:01:46.532+0000] {standard_task_runner.py:91} INFO - Job 198: Subtask load_electricity_data
+[2024-11-26T18:01:46.534+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=459) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-26T18:01:46.535+0000] {standard_task_runner.py:63} INFO - Started process 465 to run task
+[2024-11-26T18:01:46.580+0000] {task_command.py:426} INFO - Running <TaskInstance: Electricity-Fetch-Load.load_electricity_data manual__2024-11-26T18:01:13.758530+00:00 [running]> on host fd43cd87157f
+[2024-11-26T18:01:47.047+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Electricity-Fetch-Load' AIRFLOW_CTX_TASK_ID='load_electricity_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-26T18:01:13.758530+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-26T18:01:13.758530+00:00'
+[2024-11-26T18:01:47.050+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-26T18:01:47.341+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-26T18:01:47.531+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-26T18:01:47.532+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/electricity-dag.py", line 78, in load_electricity_data
+    cur.execute(create_electricity_table_query)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 090106 (22000): 01b8a259-0004-386b-0002-59530002e66a: Cannot perform CREATE TABLE. This session does not have a current schema. Call 'USE SCHEMA', or use a qualified name.
+[2024-11-26T18:01:47.569+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Electricity-Fetch-Load, task_id=load_electricity_data, run_id=manual__2024-11-26T18:01:13.758530+00:00, execution_date=20241126T180113, start_date=20241126T180146, end_date=20241126T180147
+[2024-11-26T18:01:47.583+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 198 for task load_electricity_data (090106 (22000): 01b8a259-0004-386b-0002-59530002e66a: Cannot perform CREATE TABLE. This session does not have a current schema. Call 'USE SCHEMA', or use a qualified name.; 465)
+[2024-11-26T18:01:47.633+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-26T18:01:47.656+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-26T18:01:47.660+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

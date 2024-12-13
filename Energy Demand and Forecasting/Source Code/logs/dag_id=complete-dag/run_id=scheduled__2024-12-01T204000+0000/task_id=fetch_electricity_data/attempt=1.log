@@ -1,0 +1,38 @@
+[2024-12-03T01:29:45.075+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T01:29:45.132+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.fetch_electricity_data scheduled__2024-12-01T20:40:00+00:00 [queued]>
+[2024-12-03T01:29:45.147+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.fetch_electricity_data scheduled__2024-12-01T20:40:00+00:00 [queued]>
+[2024-12-03T01:29:45.148+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-03T01:29:45.174+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): fetch_electricity_data> on 2024-12-01 20:40:00+00:00
+[2024-12-03T01:29:45.203+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'fetch_electricity_data', 'scheduled__2024-12-01T20:40:00+00:00', '--job-id', '447', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpuvn_7mxm']
+[2024-12-03T01:29:45.210+0000] {standard_task_runner.py:91} INFO - Job 447: Subtask fetch_electricity_data
+[2024-12-03T01:29:45.214+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=245) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T01:29:45.215+0000] {standard_task_runner.py:63} INFO - Started process 252 to run task
+[2024-12-03T01:29:45.323+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.fetch_electricity_data scheduled__2024-12-01T20:40:00+00:00 [running]> on host e060654747dc
+[2024-12-03T01:29:45.533+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='fetch_electricity_data' AIRFLOW_CTX_EXECUTION_DATE='2024-12-01T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-01T20:40:00+00:00'
+[2024-12-03T01:29:45.540+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T01:29:48.450+0000] {logging_mixin.py:188} INFO -        period subba  ...   value    value-units
+0  2024-12-01  PGAE  ...  249275  megawatthours
+1  2024-12-01   SCE  ...  247803  megawatthours
+2  2024-12-01  SDGE  ...   46622  megawatthours
+3  2024-12-01   VEA  ...    2405  megawatthours
+4  2024-11-30  PGAE  ...  255052  megawatthours
+
+[5 rows x 8 columns]
+[2024-12-03T01:29:48.455+0000] {python.py:237} INFO - Done. Returned value was:           period subba  ...   value    value-units
+0     2024-12-01  PGAE  ...  249275  megawatthours
+1     2024-12-01   SCE  ...  247803  megawatthours
+2     2024-12-01  SDGE  ...   46622  megawatthours
+3     2024-12-01   VEA  ...    2405  megawatthours
+4     2024-11-30  PGAE  ...  255052  megawatthours
+...          ...   ...  ...     ...            ...
+4249  2022-01-02   VEA  ...    2332  megawatthours
+4250  2022-01-01  PGAE  ...  249179  megawatthours
+4251  2022-01-01   SCE  ...  234915  megawatthours
+4252  2022-01-01  SDGE  ...   44717  megawatthours
+4253  2022-01-01   VEA  ...    2228  megawatthours
+
+[4254 rows x 8 columns]
+[2024-12-03T01:29:48.473+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T01:29:48.563+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=fetch_electricity_data, run_id=scheduled__2024-12-01T20:40:00+00:00, execution_date=20241201T204000, start_date=20241203T012945, end_date=20241203T012948
+[2024-12-03T01:29:48.606+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-03T01:29:48.622+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

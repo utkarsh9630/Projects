@@ -1,0 +1,60 @@
+[2024-12-05T07:39:02.834+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-05T07:39:02.928+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_run manual__2024-12-05T07:39:01.692210+00:00 [queued]>
+[2024-12-05T07:39:02.959+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_run manual__2024-12-05T07:39:01.692210+00:00 [queued]>
+[2024-12-05T07:39:02.962+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-05T07:39:02.997+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-12-05 07:39:01.692210+00:00
+[2024-12-05T07:39:03.013+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt-viz-dag', 'dbt_run', 'manual__2024-12-05T07:39:01.692210+00:00', '--job-id', '519', '--raw', '--subdir', 'DAGS_FOLDER/dbt-viz-dag.py', '--cfg-path', '/tmp/tmp4d5upayk']
+[2024-12-05T07:39:03.018+0000] {standard_task_runner.py:91} INFO - Job 519: Subtask dbt_run
+[2024-12-05T07:39:03.034+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1509) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-05T07:39:03.036+0000] {standard_task_runner.py:63} INFO - Started process 1510 to run task
+[2024-12-05T07:39:03.098+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt-viz-dag.dbt_run manual__2024-12-05T07:39:01.692210+00:00 [running]> on host e060654747dc
+[2024-12-05T07:39:03.495+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt-viz-dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-12-05T07:39:01.692210+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-05T07:39:01.692210+00:00'
+[2024-12-05T07:39:03.497+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-05T07:39:03.528+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-05T07:39:03.531+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt_viz --project-dir /opt/***/dbt_viz']
+[2024-12-05T07:39:03.547+0000] {subprocess.py:86} INFO - Output:
+[2024-12-05T07:39:07.142+0000] {subprocess.py:93} INFO - [0m07:39:07  Running with dbt=1.8.7
+[2024-12-05T07:39:08.843+0000] {subprocess.py:93} INFO - [0m07:39:08  Registered adapter: snowflake=1.8.4
+[2024-12-05T07:39:10.295+0000] {subprocess.py:93} INFO - [0m07:39:10  [[33mWARNING[0m]: Deprecated functionality
+[2024-12-05T07:39:10.296+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-12-05T07:39:10.296+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-12-05T07:39:10.297+0000] {subprocess.py:93} INFO - information.
+[2024-12-05T07:39:10.884+0000] {subprocess.py:93} INFO - [0m07:39:10  Found 4 models, 1 snapshot, 1 test, 3 sources, 459 macros
+[2024-12-05T07:39:10.890+0000] {subprocess.py:93} INFO - [0m07:39:10
+[2024-12-05T07:39:13.003+0000] {subprocess.py:93} INFO - [0m07:39:13  Concurrency: 1 threads (target='dev')
+[2024-12-05T07:39:13.004+0000] {subprocess.py:93} INFO - [0m07:39:13
+[2024-12-05T07:39:13.093+0000] {subprocess.py:93} INFO - [0m07:39:13  1 of 2 START sql table model analytics.energy_historical_forecast_data ......... [RUN]
+[2024-12-05T07:39:13.874+0000] {subprocess.py:93} INFO - [0m07:39:13  1 of 2 ERROR creating sql table model analytics.energy_historical_forecast_data  [[31mERROR[0m in 0.77s]
+[2024-12-05T07:39:13.885+0000] {subprocess.py:93} INFO - [0m07:39:13  2 of 2 SKIP relation analytics.energy_demand_final_data ........................ [[33mSKIP[0m]
+[2024-12-05T07:39:13.898+0000] {subprocess.py:93} INFO - [0m07:39:13
+[2024-12-05T07:39:13.900+0000] {subprocess.py:93} INFO - [0m07:39:13  Finished running 2 table models in 0 hours 0 minutes and 3.01 seconds (3.01s).
+[2024-12-05T07:39:14.034+0000] {subprocess.py:93} INFO - [0m07:39:14
+[2024-12-05T07:39:14.036+0000] {subprocess.py:93} INFO - [0m07:39:14  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-12-05T07:39:14.038+0000] {subprocess.py:93} INFO - [0m07:39:14
+[2024-12-05T07:39:14.040+0000] {subprocess.py:93} INFO - [0m07:39:14    Database Error in model energy_historical_forecast_data (models/output/energy_historical_forecast_data.sql)
+[2024-12-05T07:39:14.040+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 35 at position 21
+[2024-12-05T07:39:14.041+0000] {subprocess.py:93} INFO -   invalid identifier 'PERIOD'
+[2024-12-05T07:39:14.042+0000] {subprocess.py:93} INFO -   compiled code at target/run/project/models/output/energy_historical_forecast_data.sql
+[2024-12-05T07:39:14.042+0000] {subprocess.py:93} INFO - [0m07:39:14
+[2024-12-05T07:39:14.043+0000] {subprocess.py:93} INFO - [0m07:39:14  Done. PASS=0 WARN=0 ERROR=1 SKIP=1 TOTAL=2
+[2024-12-05T07:39:15.227+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-12-05T07:39:15.229+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-05T07:39:15.245+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-12-05T07:39:15.252+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt-viz-dag, task_id=dbt_run, run_id=manual__2024-12-05T07:39:01.692210+00:00, execution_date=20241205T073901, start_date=20241205T073902, end_date=20241205T073915
+[2024-12-05T07:39:15.273+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 519 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 1510)
+[2024-12-05T07:39:15.318+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-12-05T07:39:15.347+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-05T07:39:15.354+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

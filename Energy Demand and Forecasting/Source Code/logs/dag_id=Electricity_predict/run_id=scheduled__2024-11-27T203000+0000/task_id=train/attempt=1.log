@@ -1,0 +1,44 @@
+[2024-11-29T02:44:13.980+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-29T02:44:14.058+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Electricity_predict.train scheduled__2024-11-27T20:30:00+00:00 [queued]>
+[2024-11-29T02:44:14.068+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Electricity_predict.train scheduled__2024-11-27T20:30:00+00:00 [queued]>
+[2024-11-29T02:44:14.069+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-29T02:44:14.086+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): train> on 2024-11-27 20:30:00+00:00
+[2024-11-29T02:44:14.102+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Electricity_predict', 'train', 'scheduled__2024-11-27T20:30:00+00:00', '--job-id', '254', '--raw', '--subdir', 'DAGS_FOLDER/energy_usage_prediction.py', '--cfg-path', '/tmp/tmpiyn73ns_']
+[2024-11-29T02:44:14.105+0000] {standard_task_runner.py:91} INFO - Job 254: Subtask train
+[2024-11-29T02:44:14.114+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1350) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-29T02:44:14.116+0000] {standard_task_runner.py:63} INFO - Started process 1353 to run task
+[2024-11-29T02:44:14.401+0000] {task_command.py:426} INFO - Running <TaskInstance: Electricity_predict.train scheduled__2024-11-27T20:30:00+00:00 [running]> on host fd43cd87157f
+[2024-11-29T02:44:14.545+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Electricity_predict' AIRFLOW_CTX_TASK_ID='train' AIRFLOW_CTX_EXECUTION_DATE='2024-11-27T20:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-27T20:30:00+00:00'
+[2024-11-29T02:44:14.546+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-29T02:44:14.547+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-29T02:44:14.548+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/energy_usage_prediction.py", line 40, in train
+    CONFIG_OBJECT => { 'ON_ERROR': 'SKIP' }
+                     ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Invalid format specifier ' 'SKIP' ' for object of type 'str'
+[2024-11-29T02:44:14.562+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Electricity_predict, task_id=train, run_id=scheduled__2024-11-27T20:30:00+00:00, execution_date=20241127T203000, start_date=20241129T024414, end_date=20241129T024414
+[2024-11-29T02:44:14.577+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 254 for task train (Invalid format specifier ' 'SKIP' ' for object of type 'str'; 1353)
+[2024-11-29T02:44:14.615+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-29T02:44:14.625+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

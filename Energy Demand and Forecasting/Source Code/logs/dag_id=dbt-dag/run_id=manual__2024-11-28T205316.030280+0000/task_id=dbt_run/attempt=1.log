@@ -1,0 +1,42 @@
+[2024-11-28T20:53:16.968+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-28T20:53:17.024+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt-dag.dbt_run manual__2024-11-28T20:53:16.030280+00:00 [queued]>
+[2024-11-28T20:53:17.043+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt-dag.dbt_run manual__2024-11-28T20:53:16.030280+00:00 [queued]>
+[2024-11-28T20:53:17.044+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-28T20:53:17.068+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-11-28 20:53:16.030280+00:00
+[2024-11-28T20:53:17.082+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt-dag', 'dbt_run', 'manual__2024-11-28T20:53:16.030280+00:00', '--job-id', '249', '--raw', '--subdir', 'DAGS_FOLDER/dbt-dag.py', '--cfg-path', '/tmp/tmp5tme_d89']
+[2024-11-28T20:53:17.087+0000] {standard_task_runner.py:91} INFO - Job 249: Subtask dbt_run
+[2024-11-28T20:53:17.089+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2389) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-28T20:53:17.091+0000] {standard_task_runner.py:63} INFO - Started process 2390 to run task
+[2024-11-28T20:53:17.176+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt-dag.dbt_run manual__2024-11-28T20:53:16.030280+00:00 [running]> on host fd43cd87157f
+[2024-11-28T20:53:17.473+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt-dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-11-28T20:53:16.030280+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-28T20:53:16.030280+00:00'
+[2024-11-28T20:53:17.474+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-28T20:53:17.498+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-28T20:53:17.503+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-28T20:53:17.526+0000] {subprocess.py:86} INFO - Output:
+[2024-11-28T20:53:20.005+0000] {subprocess.py:93} INFO - [0m20:53:20  Running with dbt=1.8.7
+[2024-11-28T20:53:21.138+0000] {subprocess.py:93} INFO - [0m20:53:21  Registered adapter: snowflake=1.8.4
+[2024-11-28T20:53:21.296+0000] {subprocess.py:93} INFO - [0m20:53:21  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2024-11-28T20:53:22.954+0000] {subprocess.py:93} INFO - [0m20:53:22  [[33mWARNING[0m]: Deprecated functionality
+[2024-11-28T20:53:22.955+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-11-28T20:53:22.955+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-11-28T20:53:22.956+0000] {subprocess.py:93} INFO - information.
+[2024-11-28T20:53:23.535+0000] {subprocess.py:93} INFO - [0m20:53:23  Found 4 models, 3 data tests, 3 sources, 459 macros
+[2024-11-28T20:53:23.539+0000] {subprocess.py:93} INFO - [0m20:53:23
+[2024-11-28T20:53:25.419+0000] {subprocess.py:93} INFO - [0m20:53:25  Concurrency: 1 threads (target='dev')
+[2024-11-28T20:53:25.420+0000] {subprocess.py:93} INFO - [0m20:53:25
+[2024-11-28T20:53:25.583+0000] {subprocess.py:93} INFO - [0m20:53:25  1 of 2 START sql table model analytics.electricity_weather_combined ............ [RUN]
+[2024-11-28T20:53:28.237+0000] {subprocess.py:93} INFO - [0m20:53:28  1 of 2 OK created sql table model analytics.electricity_weather_combined ....... [[32mSUCCESS 1[0m in 2.65s]
+[2024-11-28T20:53:28.241+0000] {subprocess.py:93} INFO - [0m20:53:28  2 of 2 START sql table model analytics.electricity_weather_viz_ready ........... [RUN]
+[2024-11-28T20:53:30.050+0000] {subprocess.py:93} INFO - [0m20:53:30  2 of 2 OK created sql table model analytics.electricity_weather_viz_ready ...... [[32mSUCCESS 1[0m in 1.81s]
+[2024-11-28T20:53:30.056+0000] {subprocess.py:93} INFO - [0m20:53:30
+[2024-11-28T20:53:30.056+0000] {subprocess.py:93} INFO - [0m20:53:30  Finished running 2 table models in 0 hours 0 minutes and 6.52 seconds (6.52s).
+[2024-11-28T20:53:30.123+0000] {subprocess.py:93} INFO - [0m20:53:30
+[2024-11-28T20:53:30.125+0000] {subprocess.py:93} INFO - [0m20:53:30  [32mCompleted successfully[0m
+[2024-11-28T20:53:30.126+0000] {subprocess.py:93} INFO - [0m20:53:30
+[2024-11-28T20:53:30.128+0000] {subprocess.py:93} INFO - [0m20:53:30  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2024-11-28T20:53:30.867+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-11-28T20:53:30.869+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-28T20:53:30.918+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dbt-dag, task_id=dbt_run, run_id=manual__2024-11-28T20:53:16.030280+00:00, execution_date=20241128T205316, start_date=20241128T205317, end_date=20241128T205330
+[2024-11-28T20:53:30.956+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-28T20:53:30.984+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-28T20:53:30.987+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

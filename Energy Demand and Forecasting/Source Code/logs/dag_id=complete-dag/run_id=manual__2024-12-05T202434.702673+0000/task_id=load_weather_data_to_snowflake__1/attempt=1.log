@@ -1,0 +1,22 @@
+[2024-12-05T20:24:42.725+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-05T20:24:42.766+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.load_weather_data_to_snowflake__1 manual__2024-12-05T20:24:34.702673+00:00 [queued]>
+[2024-12-05T20:24:42.777+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.load_weather_data_to_snowflake__1 manual__2024-12-05T20:24:34.702673+00:00 [queued]>
+[2024-12-05T20:24:42.779+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-05T20:24:42.795+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_weather_data_to_snowflake__1> on 2024-12-05 20:24:34.702673+00:00
+[2024-12-05T20:24:42.808+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'load_weather_data_to_snowflake__1', 'manual__2024-12-05T20:24:34.702673+00:00', '--job-id', '555', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpdii02ka_']
+[2024-12-05T20:24:42.810+0000] {standard_task_runner.py:91} INFO - Job 555: Subtask load_weather_data_to_snowflake__1
+[2024-12-05T20:24:42.813+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=327) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-05T20:24:42.814+0000] {standard_task_runner.py:63} INFO - Started process 339 to run task
+[2024-12-05T20:24:42.863+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.load_weather_data_to_snowflake__1 manual__2024-12-05T20:24:34.702673+00:00 [running]> on host e060654747dc
+[2024-12-05T20:24:43.093+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='load_weather_data_to_snowflake__1' AIRFLOW_CTX_EXECUTION_DATE='2024-12-05T20:24:34.702673+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-05T20:24:34.702673+00:00'
+[2024-12-05T20:24:43.094+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-05T20:24:43.332+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-12-05T20:24:43.771+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-12-05T20:24:43.775+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/complete_dag.py:163 FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+[2024-12-05T20:24:44.491+0000] {logging_mixin.py:188} INFO - Successfully inserted 7 rows.
+[2024-12-05T20:24:44.595+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-12-05T20:24:44.595+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-12-05T20:24:44.596+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-05T20:24:44.606+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=load_weather_data_to_snowflake__1, run_id=manual__2024-12-05T20:24:34.702673+00:00, execution_date=20241205T202434, start_date=20241205T202442, end_date=20241205T202444
+[2024-12-05T20:24:44.634+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-05T20:24:44.645+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,36 @@
+[2024-11-12T02:54:31.379+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-12T02:54:31.664+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T02:54:27.044574+00:00 [queued]>
+[2024-11-12T02:54:31.693+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T02:54:27.044574+00:00 [queued]>
+[2024-11-12T02:54:31.695+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-12T02:54:31.749+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-11-12 02:54:27.044574+00:00
+[2024-11-12T02:54:31.766+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'BuildELT_dbt', 'dbt_run', 'manual__2024-11-12T02:54:27.044574+00:00', '--job-id', '129', '--raw', '--subdir', 'DAGS_FOLDER/build_elt_with_dbt.py', '--cfg-path', '/tmp/tmpitny526f']
+[2024-11-12T02:54:31.769+0000] {standard_task_runner.py:91} INFO - Job 129: Subtask dbt_run
+[2024-11-12T02:54:31.773+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=510) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-12T02:54:31.774+0000] {standard_task_runner.py:63} INFO - Started process 511 to run task
+[2024-11-12T02:54:31.914+0000] {task_command.py:426} INFO - Running <TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-12T02:54:27.044574+00:00 [running]> on host e9e87141c083
+[2024-11-12T02:54:32.801+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='BuildELT_dbt' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-11-12T02:54:27.044574+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-12T02:54:27.044574+00:00'
+[2024-11-12T02:54:32.807+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-12T02:54:33.002+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-12T02:54:33.027+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-12T02:54:33.064+0000] {subprocess.py:86} INFO - Output:
+[2024-11-12T02:54:38.700+0000] {subprocess.py:93} INFO - [0m02:54:38  Running with dbt=1.8.7
+[2024-11-12T02:54:42.292+0000] {subprocess.py:93} INFO - [0m02:54:42  Registered adapter: snowflake=1.8.4
+[2024-11-12T02:54:42.533+0000] {subprocess.py:93} INFO - [0m02:54:42  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2024-11-12T02:54:45.196+0000] {subprocess.py:93} INFO - [0m02:54:45  Found 2 models, 1 snapshot, 2 data tests, 2 sources, 459 macros
+[2024-11-12T02:54:45.201+0000] {subprocess.py:93} INFO - [0m02:54:45
+[2024-11-12T02:54:47.368+0000] {subprocess.py:93} INFO - [0m02:54:47  Concurrency: 1 threads (target='dev')
+[2024-11-12T02:54:47.369+0000] {subprocess.py:93} INFO - [0m02:54:47
+[2024-11-12T02:54:47.418+0000] {subprocess.py:93} INFO - [0m02:54:47  1 of 1 START sql table model analytics.moving_avg_5d ........................... [RUN]
+[2024-11-12T02:54:49.512+0000] {subprocess.py:93} INFO - [0m02:54:49  1 of 1 OK created sql table model analytics.moving_avg_5d ...................... [[32mSUCCESS 1[0m in 2.09s]
+[2024-11-12T02:54:49.516+0000] {subprocess.py:93} INFO - [0m02:54:49
+[2024-11-12T02:54:49.517+0000] {subprocess.py:93} INFO - [0m02:54:49  Finished running 1 table model in 0 hours 0 minutes and 4.31 seconds (4.31s).
+[2024-11-12T02:54:49.570+0000] {subprocess.py:93} INFO - [0m02:54:49
+[2024-11-12T02:54:49.571+0000] {subprocess.py:93} INFO - [0m02:54:49  [32mCompleted successfully[0m
+[2024-11-12T02:54:49.572+0000] {subprocess.py:93} INFO - [0m02:54:49
+[2024-11-12T02:54:49.573+0000] {subprocess.py:93} INFO - [0m02:54:49  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-11-12T02:54:50.449+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-11-12T02:54:50.454+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-12T02:54:50.954+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=BuildELT_dbt, task_id=dbt_run, run_id=manual__2024-11-12T02:54:27.044574+00:00, execution_date=20241112T025427, start_date=20241112T025431, end_date=20241112T025450
+[2024-11-12T02:54:51.159+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-12T02:54:51.230+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-11-12T02:54:51.234+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

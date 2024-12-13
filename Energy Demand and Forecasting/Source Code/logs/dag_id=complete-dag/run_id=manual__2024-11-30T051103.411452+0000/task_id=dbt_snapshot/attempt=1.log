@@ -1,0 +1,25 @@
+[2024-11-30T05:11:51.719+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T05:11:51.751+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.dbt_snapshot manual__2024-11-30T05:11:03.411452+00:00 [queued]>
+[2024-11-30T05:11:51.761+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.dbt_snapshot manual__2024-11-30T05:11:03.411452+00:00 [queued]>
+[2024-11-30T05:11:51.761+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-30T05:11:51.776+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_snapshot> on 2024-11-30 05:11:03.411452+00:00
+[2024-11-30T05:11:51.787+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'dbt_snapshot', 'manual__2024-11-30T05:11:03.411452+00:00', '--job-id', '321', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpfnk4m27m']
+[2024-11-30T05:11:51.789+0000] {standard_task_runner.py:91} INFO - Job 321: Subtask dbt_snapshot
+[2024-11-30T05:11:51.792+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2786) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T05:11:51.793+0000] {standard_task_runner.py:63} INFO - Started process 2793 to run task
+[2024-11-30T05:11:51.840+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.dbt_snapshot manual__2024-11-30T05:11:03.411452+00:00 [running]> on host b09a94790db6
+[2024-11-30T05:11:51.974+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2024-11-30T05:11:03.411452+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-30T05:11:03.411452+00:00'
+[2024-11-30T05:11:51.976+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T05:11:51.977+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-30T05:11:51.978+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt snapshot --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-30T05:11:51.995+0000] {subprocess.py:86} INFO - Output:
+[2024-11-30T05:11:54.090+0000] {subprocess.py:93} INFO - [0m05:11:54  Running with dbt=1.8.7
+[2024-11-30T05:11:55.186+0000] {subprocess.py:93} INFO - [0m05:11:55  Registered adapter: snowflake=1.8.4
+[2024-11-30T05:11:55.810+0000] {subprocess.py:93} INFO - [0m05:11:55  Found 7 models, 1 test, 4 sources, 459 macros
+[2024-11-30T05:11:55.813+0000] {subprocess.py:93} INFO - [0m05:11:55
+[2024-11-30T05:11:55.815+0000] {subprocess.py:93} INFO - [0m05:11:55  Nothing to do. Try checking your model configs and model specification args
+[2024-11-30T05:11:56.605+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-11-30T05:11:56.607+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T05:11:56.704+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=dbt_snapshot, run_id=manual__2024-11-30T05:11:03.411452+00:00, execution_date=20241130T051103, start_date=20241130T051151, end_date=20241130T051156
+[2024-11-30T05:11:56.747+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-30T05:11:56.757+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

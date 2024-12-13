@@ -1,0 +1,30 @@
+[2024-12-03T01:29:45.079+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-03T01:29:45.134+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.fetch_historical_weather scheduled__2024-12-01T20:40:00+00:00 [queued]>
+[2024-12-03T01:29:45.151+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.fetch_historical_weather scheduled__2024-12-01T20:40:00+00:00 [queued]>
+[2024-12-03T01:29:45.153+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-03T01:29:45.186+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): fetch_historical_weather> on 2024-12-01 20:40:00+00:00
+[2024-12-03T01:29:45.214+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'fetch_historical_weather', 'scheduled__2024-12-01T20:40:00+00:00', '--job-id', '448', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpsvzmat6h']
+[2024-12-03T01:29:45.217+0000] {standard_task_runner.py:91} INFO - Job 448: Subtask fetch_historical_weather
+[2024-12-03T01:29:45.220+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=244) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-03T01:29:45.222+0000] {standard_task_runner.py:63} INFO - Started process 253 to run task
+[2024-12-03T01:29:45.338+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.fetch_historical_weather scheduled__2024-12-01T20:40:00+00:00 [running]> on host e060654747dc
+[2024-12-03T01:29:45.533+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='fetch_historical_weather' AIRFLOW_CTX_EXECUTION_DATE='2024-12-01T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-01T20:40:00+00:00'
+[2024-12-03T01:29:45.539+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-03T01:29:46.832+0000] {python.py:237} INFO - Done. Returned value was:             Date  temperature_2m_max  ...  windspeed_10m_max  avg_temperature
+0     2022-01-01                 8.0  ...               18.0             2.55
+1     2022-01-02                 7.0  ...               11.8             1.35
+2     2022-01-03                 5.5  ...               11.4             0.55
+3     2022-01-04                 4.1  ...               11.7             1.30
+4     2022-01-05                 4.8  ...               11.2             0.15
+...          ...                 ...  ...                ...              ...
+1063  2024-11-29                15.9  ...               13.7             8.95
+1064  2024-11-30                15.4  ...               13.9             9.70
+1065  2024-12-01                13.3  ...               22.6             9.00
+1066  2024-12-02                 NaN  ...                NaN              NaN
+1067  2024-12-03                 NaN  ...                NaN              NaN
+
+[1068 rows x 7 columns]
+[2024-12-03T01:29:46.899+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-03T01:29:47.086+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=fetch_historical_weather, run_id=scheduled__2024-12-01T20:40:00+00:00, execution_date=20241201T204000, start_date=20241203T012945, end_date=20241203T012947
+[2024-12-03T01:29:47.167+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-03T01:29:47.189+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

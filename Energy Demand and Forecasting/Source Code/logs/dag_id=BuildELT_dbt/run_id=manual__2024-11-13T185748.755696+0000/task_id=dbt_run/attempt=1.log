@@ -1,0 +1,56 @@
+[2024-11-13T18:57:49.277+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-13T18:57:49.313+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-13T18:57:48.755696+00:00 [queued]>
+[2024-11-13T18:57:49.324+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-13T18:57:48.755696+00:00 [queued]>
+[2024-11-13T18:57:49.325+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-13T18:57:49.345+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-11-13 18:57:48.755696+00:00
+[2024-11-13T18:57:49.355+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'BuildELT_dbt', 'dbt_run', 'manual__2024-11-13T18:57:48.755696+00:00', '--job-id', '182', '--raw', '--subdir', 'DAGS_FOLDER/build_elt_with_dbt.py', '--cfg-path', '/tmp/tmp_aqb1zmw']
+[2024-11-13T18:57:49.358+0000] {standard_task_runner.py:91} INFO - Job 182: Subtask dbt_run
+[2024-11-13T18:57:49.359+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1714) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-13T18:57:49.360+0000] {standard_task_runner.py:63} INFO - Started process 1715 to run task
+[2024-11-13T18:57:49.418+0000] {task_command.py:426} INFO - Running <TaskInstance: BuildELT_dbt.dbt_run manual__2024-11-13T18:57:48.755696+00:00 [running]> on host d7a7afbedfaf
+[2024-11-13T18:57:49.586+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='BuildELT_dbt' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-11-13T18:57:48.755696+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-13T18:57:48.755696+00:00'
+[2024-11-13T18:57:49.587+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-13T18:57:49.602+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-13T18:57:49.604+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-13T18:57:49.616+0000] {subprocess.py:86} INFO - Output:
+[2024-11-13T18:57:51.881+0000] {subprocess.py:93} INFO - [0m18:57:51  Running with dbt=1.8.7
+[2024-11-13T18:57:52.954+0000] {subprocess.py:93} INFO - [0m18:57:52  Registered adapter: snowflake=1.8.4
+[2024-11-13T18:57:53.103+0000] {subprocess.py:93} INFO - [0m18:57:53  Unable to do partial parsing because a project config has changed
+[2024-11-13T18:57:54.857+0000] {subprocess.py:93} INFO - [0m18:57:54  Found 6 models, 1 snapshot, 2 data tests, 2 sources, 459 macros
+[2024-11-13T18:57:54.861+0000] {subprocess.py:93} INFO - [0m18:57:54
+[2024-11-13T18:57:56.982+0000] {subprocess.py:93} INFO - [0m18:57:56  Concurrency: 1 threads (target='dev')
+[2024-11-13T18:57:56.983+0000] {subprocess.py:93} INFO - [0m18:57:56
+[2024-11-13T18:57:57.078+0000] {subprocess.py:93} INFO - [0m18:57:57  1 of 1 START sql table model analytics.stock_indicators ........................ [RUN]
+[2024-11-13T18:57:57.834+0000] {subprocess.py:93} INFO - [0m18:57:57  1 of 1 ERROR creating sql table model analytics.stock_indicators ............... [[31mERROR[0m in 0.75s]
+[2024-11-13T18:57:57.839+0000] {subprocess.py:93} INFO - [0m18:57:57
+[2024-11-13T18:57:57.840+0000] {subprocess.py:93} INFO - [0m18:57:57  Finished running 1 table model in 0 hours 0 minutes and 2.98 seconds (2.98s).
+[2024-11-13T18:57:57.909+0000] {subprocess.py:93} INFO - [0m18:57:57
+[2024-11-13T18:57:57.910+0000] {subprocess.py:93} INFO - [0m18:57:57  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-11-13T18:57:57.911+0000] {subprocess.py:93} INFO - [0m18:57:57
+[2024-11-13T18:57:57.912+0000] {subprocess.py:93} INFO - [0m18:57:57    Database Error in model stock_indicators (models/output/stock_indicators.sql)
+[2024-11-13T18:57:57.912+0000] {subprocess.py:93} INFO -   001003 (42000): SQL compilation error:
+[2024-11-13T18:57:57.912+0000] {subprocess.py:93} INFO -   syntax error line 118 at position 8 unexpected ';'.
+[2024-11-13T18:57:57.913+0000] {subprocess.py:93} INFO -   compiled code at target/run/lab2/models/output/stock_indicators.sql
+[2024-11-13T18:57:57.913+0000] {subprocess.py:93} INFO - [0m18:57:57
+[2024-11-13T18:57:57.913+0000] {subprocess.py:93} INFO - [0m18:57:57  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-11-13T18:57:58.731+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-11-13T18:57:58.733+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-13T18:57:58.745+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-11-13T18:57:58.751+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=BuildELT_dbt, task_id=dbt_run, run_id=manual__2024-11-13T18:57:48.755696+00:00, execution_date=20241113T185748, start_date=20241113T185749, end_date=20241113T185758
+[2024-11-13T18:57:58.775+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 182 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 1715)
+[2024-11-13T18:57:58.807+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-13T18:57:58.829+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-13T18:57:58.835+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

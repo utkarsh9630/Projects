@@ -1,0 +1,22 @@
+[2024-11-29T20:44:32.696+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-29T20:44:32.765+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Electricity_predict.train scheduled__2024-11-28T20:30:00+00:00 [queued]>
+[2024-11-29T20:44:32.782+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Electricity_predict.train scheduled__2024-11-28T20:30:00+00:00 [queued]>
+[2024-11-29T20:44:32.784+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-29T20:44:32.867+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): train> on 2024-11-28 20:30:00+00:00
+[2024-11-29T20:44:32.907+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Electricity_predict', 'train', 'scheduled__2024-11-28T20:30:00+00:00', '--job-id', '280', '--raw', '--subdir', 'DAGS_FOLDER/energy_usage_prediction.py', '--cfg-path', '/tmp/tmpi2w1ef43']
+[2024-11-29T20:44:32.920+0000] {standard_task_runner.py:91} INFO - Job 280: Subtask train
+[2024-11-29T20:44:32.919+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=16278) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-29T20:44:32.923+0000] {standard_task_runner.py:63} INFO - Started process 16313 to run task
+[2024-11-29T20:44:33.181+0000] {task_command.py:426} INFO - Running <TaskInstance: Electricity_predict.train scheduled__2024-11-28T20:30:00+00:00 [running]> on host fd43cd87157f
+[2024-11-29T20:44:34.923+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Electricity_predict' AIRFLOW_CTX_TASK_ID='train' AIRFLOW_CTX_EXECUTION_DATE='2024-11-28T20:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-28T20:30:00+00:00'
+[2024-11-29T20:44:34.926+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-29T20:44:35.289+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-29T20:44:35.290+0000] {energy_usage_prediction.py:48} INFO - View created
+[2024-11-29T20:47:49.641+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-29T20:47:49.713+0000] {energy_usage_prediction.py:50} INFO - Model for training created
+[2024-11-29T20:47:51.601+0000] {cursor.py:1149} INFO - Number of results in first chunk: 28
+[2024-11-29T20:47:51.615+0000] {python.py:237} INFO - Done. Returned value was: True
+[2024-11-29T20:47:51.631+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-29T20:47:51.938+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Electricity_predict, task_id=train, run_id=scheduled__2024-11-28T20:30:00+00:00, execution_date=20241128T203000, start_date=20241129T204432, end_date=20241129T204751
+[2024-11-29T20:47:52.133+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-29T20:47:52.257+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,46 @@
+[2024-11-29T20:44:17.658+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-29T20:44:17.898+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt-dag.dbt_run scheduled__2024-11-28T20:40:00+00:00 [queued]>
+[2024-11-29T20:44:17.921+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt-dag.dbt_run scheduled__2024-11-28T20:40:00+00:00 [queued]>
+[2024-11-29T20:44:17.922+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-29T20:44:17.970+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run> on 2024-11-28 20:40:00+00:00
+[2024-11-29T20:44:18.007+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt-dag', 'dbt_run', 'scheduled__2024-11-28T20:40:00+00:00', '--job-id', '277', '--raw', '--subdir', 'DAGS_FOLDER/dbt-dag.py', '--cfg-path', '/tmp/tmpw1na7wcx']
+[2024-11-29T20:44:18.010+0000] {standard_task_runner.py:91} INFO - Job 277: Subtask dbt_run
+[2024-11-29T20:44:18.011+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=16275) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-29T20:44:18.012+0000] {standard_task_runner.py:63} INFO - Started process 16293 to run task
+[2024-11-29T20:44:18.081+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt-dag.dbt_run scheduled__2024-11-28T20:40:00+00:00 [running]> on host fd43cd87157f
+[2024-11-29T20:44:18.340+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt-dag' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2024-11-28T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-28T20:40:00+00:00'
+[2024-11-29T20:44:18.341+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-29T20:44:18.378+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-29T20:44:18.402+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-29T20:44:18.474+0000] {subprocess.py:86} INFO - Output:
+[2024-11-29T20:44:30.054+0000] {subprocess.py:93} INFO - [0m20:44:30  Running with dbt=1.8.7
+[2024-11-29T20:44:35.845+0000] {subprocess.py:93} INFO - [0m20:44:35  Registered adapter: snowflake=1.8.4
+[2024-11-29T20:44:37.143+0000] {subprocess.py:93} INFO - [0m20:44:37  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2024-11-29T20:44:39.505+0000] {subprocess.py:93} INFO - [0m20:44:39  [[33mWARNING[0m]: Deprecated functionality
+[2024-11-29T20:44:39.506+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2024-11-29T20:44:39.509+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2024-11-29T20:44:39.513+0000] {subprocess.py:93} INFO - information.
+[2024-11-29T20:44:39.894+0000] {subprocess.py:93} INFO - [0m20:44:39  Encountered an error:
+[2024-11-29T20:44:39.897+0000] {subprocess.py:93} INFO - Compilation Error
+[2024-11-29T20:44:39.902+0000] {subprocess.py:93} INFO -   Model 'model.lab2.weather_forecast_data' (models/input/weather_forecast_data.sql) depends on a source named 'raw_data.weather_forecast_data' which was not found
+[2024-11-29T20:44:41.068+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2024-11-29T20:44:41.086+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-29T20:44:41.164+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2024-11-29T20:44:41.199+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt-dag, task_id=dbt_run, run_id=scheduled__2024-11-28T20:40:00+00:00, execution_date=20241128T204000, start_date=20241129T204417, end_date=20241129T204441
+[2024-11-29T20:44:41.265+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 277 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 16293)
+[2024-11-29T20:44:41.295+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-29T20:44:41.375+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-29T20:44:41.388+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,34 @@
+[2024-11-30T06:37:05.135+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T06:37:05.160+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.dbt_test manual__2024-11-30T06:36:41.008481+00:00 [queued]>
+[2024-11-30T06:37:05.167+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.dbt_test manual__2024-11-30T06:36:41.008481+00:00 [queued]>
+[2024-11-30T06:37:05.168+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-30T06:37:05.180+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test> on 2024-11-30 06:36:41.008481+00:00
+[2024-11-30T06:37:05.190+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=10656) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T06:37:05.190+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'dbt_test', 'manual__2024-11-30T06:36:41.008481+00:00', '--job-id', '388', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpta0d88kh']
+[2024-11-30T06:37:05.191+0000] {standard_task_runner.py:63} INFO - Started process 10659 to run task
+[2024-11-30T06:37:05.192+0000] {standard_task_runner.py:91} INFO - Job 388: Subtask dbt_test
+[2024-11-30T06:37:05.236+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.dbt_test manual__2024-11-30T06:36:41.008481+00:00 [running]> on host b09a94790db6
+[2024-11-30T06:37:05.351+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2024-11-30T06:36:41.008481+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-30T06:36:41.008481+00:00'
+[2024-11-30T06:37:05.353+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T06:37:05.353+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-30T06:37:05.355+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt test --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2024-11-30T06:37:05.370+0000] {subprocess.py:86} INFO - Output:
+[2024-11-30T06:37:07.355+0000] {subprocess.py:93} INFO - [0m06:37:07  Running with dbt=1.8.7
+[2024-11-30T06:37:08.399+0000] {subprocess.py:93} INFO - [0m06:37:08  Registered adapter: snowflake=1.8.4
+[2024-11-30T06:37:09.074+0000] {subprocess.py:93} INFO - [0m06:37:09  Found 5 models, 1 test, 4 sources, 459 macros
+[2024-11-30T06:37:09.078+0000] {subprocess.py:93} INFO - [0m06:37:09
+[2024-11-30T06:37:10.037+0000] {subprocess.py:93} INFO - [0m06:37:10  Concurrency: 1 threads (target='dev')
+[2024-11-30T06:37:10.038+0000] {subprocess.py:93} INFO - [0m06:37:10
+[2024-11-30T06:37:10.050+0000] {subprocess.py:93} INFO - [0m06:37:10  1 of 1 START test not_null_electricity_weather_historical_period ............... [RUN]
+[2024-11-30T06:37:11.050+0000] {subprocess.py:93} INFO - [0m06:37:11  1 of 1 PASS not_null_electricity_weather_historical_period ..................... [[32mPASS[0m in 1.00s]
+[2024-11-30T06:37:11.055+0000] {subprocess.py:93} INFO - [0m06:37:11
+[2024-11-30T06:37:11.056+0000] {subprocess.py:93} INFO - [0m06:37:11  Finished running 1 test in 0 hours 0 minutes and 1.98 seconds (1.98s).
+[2024-11-30T06:37:11.110+0000] {subprocess.py:93} INFO - [0m06:37:11
+[2024-11-30T06:37:11.112+0000] {subprocess.py:93} INFO - [0m06:37:11  [32mCompleted successfully[0m
+[2024-11-30T06:37:11.113+0000] {subprocess.py:93} INFO - [0m06:37:11
+[2024-11-30T06:37:11.114+0000] {subprocess.py:93} INFO - [0m06:37:11  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-11-30T06:37:11.818+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-11-30T06:37:11.819+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T06:37:11.846+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=dbt_test, run_id=manual__2024-11-30T06:36:41.008481+00:00, execution_date=20241130T063641, start_date=20241130T063705, end_date=20241130T063711
+[2024-11-30T06:37:11.870+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-30T06:37:11.879+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

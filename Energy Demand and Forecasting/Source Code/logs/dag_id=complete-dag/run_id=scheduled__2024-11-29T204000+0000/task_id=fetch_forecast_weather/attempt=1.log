@@ -1,0 +1,26 @@
+[2024-11-30T20:42:52.246+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T20:42:52.602+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.fetch_forecast_weather scheduled__2024-11-29T20:40:00+00:00 [queued]>
+[2024-11-30T20:42:52.615+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.fetch_forecast_weather scheduled__2024-11-29T20:40:00+00:00 [queued]>
+[2024-11-30T20:42:52.625+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-30T20:42:52.804+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): fetch_forecast_weather> on 2024-11-29 20:40:00+00:00
+[2024-11-30T20:42:52.862+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'fetch_forecast_weather', 'scheduled__2024-11-29T20:40:00+00:00', '--job-id', '429', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmpgdwyju8h']
+[2024-11-30T20:42:52.903+0000] {standard_task_runner.py:91} INFO - Job 429: Subtask fetch_forecast_weather
+[2024-11-30T20:42:52.916+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3518) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T20:42:52.918+0000] {standard_task_runner.py:63} INFO - Started process 3560 to run task
+[2024-11-30T20:42:53.161+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.fetch_forecast_weather scheduled__2024-11-29T20:40:00+00:00 [running]> on host e060654747dc
+[2024-11-30T20:42:53.869+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='fetch_forecast_weather' AIRFLOW_CTX_EXECUTION_DATE='2024-11-29T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-29T20:40:00+00:00'
+[2024-11-30T20:42:53.889+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T20:42:54.826+0000] {python.py:237} INFO - Done. Returned value was:          Date  temperature_2m_max  ...  windspeed_10m_max  avg_temperature
+0  2024-11-30                16.2  ...               11.6            11.25
+1  2024-12-01                15.6  ...               24.7             9.85
+2  2024-12-02                 6.2  ...               19.1             2.05
+3  2024-12-03                 7.6  ...               11.5             2.45
+4  2024-12-04                 8.1  ...               13.8             3.10
+5  2024-12-05                 9.8  ...               12.3             4.20
+6  2024-12-06                 8.2  ...               18.0             3.75
+
+[7 rows x 7 columns]
+[2024-11-30T20:42:54.928+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T20:42:55.213+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=fetch_forecast_weather, run_id=scheduled__2024-11-29T20:40:00+00:00, execution_date=20241129T204000, start_date=20241130T204252, end_date=20241130T204255
+[2024-11-30T20:42:55.286+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-30T20:42:55.347+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

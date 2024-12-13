@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: dev
+    schema: raw_data
+    description: "Schema which stores raw tables (ETL)"
+    tables:
+      - name: electricity_data_historical
+        identifier: electricity_data_historical
+        description: "Historical electricity data"
+      - name: weather_data_historical
+        identifier: weather_data_historical
+        description: "Historical weather data"
+      - name: weather_data_forecast
+        identifier: weather_data_forecast
+        description: "weather forecast data"
+  - name: analytics
+    database: dev
+    schema: analytics
+    description: "Schema with merged data"
+    tables:
+      - name: electricity_weather_historical
+        identifier: electricity_weather_historical
+        description: "Merged table with historical energy and weather data before Snowflake train & predict"

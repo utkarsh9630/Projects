@@ -1,0 +1,37 @@
+[2024-12-05T20:31:30.638+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-12-05T20:31:30.665+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.dbt_run_2 manual__2024-12-05T20:24:34.702673+00:00 [queued]>
+[2024-12-05T20:31:30.674+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.dbt_run_2 manual__2024-12-05T20:24:34.702673+00:00 [queued]>
+[2024-12-05T20:31:30.675+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-12-05T20:31:30.688+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_run_2> on 2024-12-05 20:24:34.702673+00:00
+[2024-12-05T20:31:30.698+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'dbt_run_2', 'manual__2024-12-05T20:24:34.702673+00:00', '--job-id', '563', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmp2xtqgj31']
+[2024-12-05T20:31:30.699+0000] {standard_task_runner.py:91} INFO - Job 563: Subtask dbt_run_2
+[2024-12-05T20:31:30.701+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=602) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-05T20:31:30.702+0000] {standard_task_runner.py:63} INFO - Started process 605 to run task
+[2024-12-05T20:31:30.738+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.dbt_run_2 manual__2024-12-05T20:24:34.702673+00:00 [running]> on host e060654747dc
+[2024-12-05T20:31:30.860+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='dbt_run_2' AIRFLOW_CTX_EXECUTION_DATE='2024-12-05T20:24:34.702673+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-05T20:24:34.702673+00:00'
+[2024-12-05T20:31:30.861+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-12-05T20:31:30.862+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-12-05T20:31:30.865+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt run --profiles-dir /opt/***/dbt_viz --project-dir /opt/***/dbt_viz']
+[2024-12-05T20:31:30.879+0000] {subprocess.py:86} INFO - Output:
+[2024-12-05T20:31:33.661+0000] {subprocess.py:93} INFO - [0m20:31:33  Running with dbt=1.8.7
+[2024-12-05T20:31:34.930+0000] {subprocess.py:93} INFO - [0m20:31:34  Registered adapter: snowflake=1.8.4
+[2024-12-05T20:31:35.667+0000] {subprocess.py:93} INFO - [0m20:31:35  Found 4 models, 1 snapshot, 1 test, 3 sources, 459 macros
+[2024-12-05T20:31:35.673+0000] {subprocess.py:93} INFO - [0m20:31:35
+[2024-12-05T20:31:37.695+0000] {subprocess.py:93} INFO - [0m20:31:37  Concurrency: 1 threads (target='dev')
+[2024-12-05T20:31:37.696+0000] {subprocess.py:93} INFO - [0m20:31:37
+[2024-12-05T20:31:37.746+0000] {subprocess.py:93} INFO - [0m20:31:37  1 of 2 START sql table model analytics.energy_historical_forecast_data ......... [RUN]
+[2024-12-05T20:31:39.445+0000] {subprocess.py:93} INFO - [0m20:31:39  1 of 2 OK created sql table model analytics.energy_historical_forecast_data .... [[32mSUCCESS 1[0m in 1.69s]
+[2024-12-05T20:31:39.449+0000] {subprocess.py:93} INFO - [0m20:31:39  2 of 2 START sql table model analytics.energy_demand_final_data ................ [RUN]
+[2024-12-05T20:31:40.725+0000] {subprocess.py:93} INFO - [0m20:31:40  2 of 2 OK created sql table model analytics.energy_demand_final_data ........... [[32mSUCCESS 1[0m in 1.27s]
+[2024-12-05T20:31:40.731+0000] {subprocess.py:93} INFO - [0m20:31:40
+[2024-12-05T20:31:40.732+0000] {subprocess.py:93} INFO - [0m20:31:40  Finished running 2 table models in 0 hours 0 minutes and 5.06 seconds (5.06s).
+[2024-12-05T20:31:40.805+0000] {subprocess.py:93} INFO - [0m20:31:40
+[2024-12-05T20:31:40.807+0000] {subprocess.py:93} INFO - [0m20:31:40  [32mCompleted successfully[0m
+[2024-12-05T20:31:40.808+0000] {subprocess.py:93} INFO - [0m20:31:40
+[2024-12-05T20:31:40.810+0000] {subprocess.py:93} INFO - [0m20:31:40  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2024-12-05T20:31:41.654+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-12-05T20:31:41.655+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-12-05T20:31:41.680+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=dbt_run_2, run_id=manual__2024-12-05T20:24:34.702673+00:00, execution_date=20241205T202434, start_date=20241205T203130, end_date=20241205T203141
+[2024-12-05T20:31:41.719+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-12-05T20:31:41.742+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-12-05T20:31:41.746+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

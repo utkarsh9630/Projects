@@ -1,0 +1,1 @@
+[2024-11-13T17:55:20.354+0000] {task_context_logger.py:104} ERROR - Executor reports task instance <TaskInstance: Load_Stock_Data_ETL.return_last_90d_price scheduled__2024-11-11T20:30:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

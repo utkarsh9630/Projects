@@ -1,0 +1,55 @@
+[2024-11-30T20:43:10.304+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T20:43:10.337+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_test scheduled__2024-11-29T20:40:00+00:00 [queued]>
+[2024-11-30T20:43:10.345+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dbt-viz-dag.dbt_test scheduled__2024-11-29T20:40:00+00:00 [queued]>
+[2024-11-30T20:43:10.346+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-30T20:43:10.361+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test> on 2024-11-29 20:40:00+00:00
+[2024-11-30T20:43:10.370+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dbt-viz-dag', 'dbt_test', 'scheduled__2024-11-29T20:40:00+00:00', '--job-id', '436', '--raw', '--subdir', 'DAGS_FOLDER/dbt-viz-dag.py', '--cfg-path', '/tmp/tmpxdbpvkn8']
+[2024-11-30T20:43:10.372+0000] {standard_task_runner.py:91} INFO - Job 436: Subtask dbt_test
+[2024-11-30T20:43:10.389+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3665) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T20:43:10.390+0000] {standard_task_runner.py:63} INFO - Started process 3667 to run task
+[2024-11-30T20:43:10.420+0000] {task_command.py:426} INFO - Running <TaskInstance: dbt-viz-dag.dbt_test scheduled__2024-11-29T20:40:00+00:00 [running]> on host e060654747dc
+[2024-11-30T20:43:10.583+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dbt-viz-dag' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2024-11-29T20:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-29T20:40:00+00:00'
+[2024-11-30T20:43:10.584+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T20:43:10.599+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-11-30T20:43:10.603+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt test --profiles-dir /opt/***/dbt_viz --project-dir /opt/***/dbt_viz']
+[2024-11-30T20:43:10.616+0000] {subprocess.py:86} INFO - Output:
+[2024-11-30T20:43:14.050+0000] {subprocess.py:93} INFO - [0m20:43:14  Running with dbt=1.8.7
+[2024-11-30T20:43:15.783+0000] {subprocess.py:93} INFO - [0m20:43:15  Registered adapter: snowflake=1.8.4
+[2024-11-30T20:43:16.673+0000] {subprocess.py:93} INFO - [0m20:43:16  Found 4 models, 1 test, 3 sources, 459 macros
+[2024-11-30T20:43:16.677+0000] {subprocess.py:93} INFO - [0m20:43:16
+[2024-11-30T20:43:18.107+0000] {subprocess.py:93} INFO - [0m20:43:18  Concurrency: 1 threads (target='dev')
+[2024-11-30T20:43:18.108+0000] {subprocess.py:93} INFO - [0m20:43:18
+[2024-11-30T20:43:18.119+0000] {subprocess.py:93} INFO - [0m20:43:18  1 of 1 START test not_null_energy_historical_forecast_data_period .............. [RUN]
+[2024-11-30T20:43:19.119+0000] {subprocess.py:93} INFO - [0m20:43:19  1 of 1 FAIL 4 not_null_energy_historical_forecast_data_period .................. [[31mFAIL 4[0m in 1.00s]
+[2024-11-30T20:43:19.124+0000] {subprocess.py:93} INFO - [0m20:43:19
+[2024-11-30T20:43:19.125+0000] {subprocess.py:93} INFO - [0m20:43:19  Finished running 1 test in 0 hours 0 minutes and 2.45 seconds (2.45s).
+[2024-11-30T20:43:19.180+0000] {subprocess.py:93} INFO - [0m20:43:19
+[2024-11-30T20:43:19.181+0000] {subprocess.py:93} INFO - [0m20:43:19  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-11-30T20:43:19.182+0000] {subprocess.py:93} INFO - [0m20:43:19
+[2024-11-30T20:43:19.183+0000] {subprocess.py:93} INFO - [0m20:43:19  [31mFailure in test not_null_energy_historical_forecast_data_period (models/schema.yml)[0m
+[2024-11-30T20:43:19.184+0000] {subprocess.py:93} INFO - [0m20:43:19    Got 4 results, configured to fail if != 0
+[2024-11-30T20:43:19.185+0000] {subprocess.py:93} INFO - [0m20:43:19
+[2024-11-30T20:43:19.186+0000] {subprocess.py:93} INFO - [0m20:43:19    compiled code at target/compiled/project/models/schema.yml/not_null_energy_historical_forecast_data_period.sql
+[2024-11-30T20:43:19.187+0000] {subprocess.py:93} INFO - [0m20:43:19
+[2024-11-30T20:43:19.188+0000] {subprocess.py:93} INFO - [0m20:43:19  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-11-30T20:43:19.944+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-11-30T20:43:19.945+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T20:43:19.957+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-11-30T20:43:19.962+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=dbt-viz-dag, task_id=dbt_test, run_id=scheduled__2024-11-29T20:40:00+00:00, execution_date=20241129T204000, start_date=20241130T204310, end_date=20241130T204319
+[2024-11-30T20:43:19.978+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 436 for task dbt_test (Bash command failed. The command returned a non-zero exit code 1.; 3667)
+[2024-11-30T20:43:20.010+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-30T20:43:20.031+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-30T20:43:20.036+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

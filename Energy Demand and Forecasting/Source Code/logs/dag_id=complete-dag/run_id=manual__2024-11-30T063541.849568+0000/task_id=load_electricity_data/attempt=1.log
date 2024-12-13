@@ -1,0 +1,20 @@
+[2024-11-30T06:35:50.883+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-30T06:35:50.910+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complete-dag.load_electricity_data manual__2024-11-30T06:35:41.849568+00:00 [queued]>
+[2024-11-30T06:35:50.917+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complete-dag.load_electricity_data manual__2024-11-30T06:35:41.849568+00:00 [queued]>
+[2024-11-30T06:35:50.919+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-30T06:35:50.932+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): load_electricity_data> on 2024-11-30 06:35:41.849568+00:00
+[2024-11-30T06:35:50.941+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=10406) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-30T06:35:50.941+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complete-dag', 'load_electricity_data', 'manual__2024-11-30T06:35:41.849568+00:00', '--job-id', '379', '--raw', '--subdir', 'DAGS_FOLDER/complete_dag.py', '--cfg-path', '/tmp/tmponvic86p']
+[2024-11-30T06:35:50.943+0000] {standard_task_runner.py:63} INFO - Started process 10422 to run task
+[2024-11-30T06:35:50.943+0000] {standard_task_runner.py:91} INFO - Job 379: Subtask load_electricity_data
+[2024-11-30T06:35:50.985+0000] {task_command.py:426} INFO - Running <TaskInstance: complete-dag.load_electricity_data manual__2024-11-30T06:35:41.849568+00:00 [running]> on host b09a94790db6
+[2024-11-30T06:35:51.127+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complete-dag' AIRFLOW_CTX_TASK_ID='load_electricity_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-30T06:35:41.849568+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-30T06:35:41.849568+00:00'
+[2024-11-30T06:35:51.129+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-30T06:35:51.273+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-30T06:35:51.603+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-30T06:35:53.513+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2024-11-30T06:35:53.514+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-11-30T06:35:53.515+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-30T06:35:53.523+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complete-dag, task_id=load_electricity_data, run_id=manual__2024-11-30T06:35:41.849568+00:00, execution_date=20241130T063541, start_date=20241130T063550, end_date=20241130T063553
+[2024-11-30T06:35:53.566+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-11-30T06:35:53.578+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,45 @@
+[2024-11-29T02:47:33.057+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-29T02:47:33.099+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Electricity_predict.train manual__2024-11-29T02:47:27.145683+00:00 [queued]>
+[2024-11-29T02:47:33.108+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Electricity_predict.train manual__2024-11-29T02:47:27.145683+00:00 [queued]>
+[2024-11-29T02:47:33.108+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-11-29T02:47:33.123+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): train> on 2024-11-29 02:47:27.145683+00:00
+[2024-11-29T02:47:33.142+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1556) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-29T02:47:33.141+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Electricity_predict', 'train', 'manual__2024-11-29T02:47:27.145683+00:00', '--job-id', '255', '--raw', '--subdir', 'DAGS_FOLDER/energy_usage_prediction.py', '--cfg-path', '/tmp/tmpw571r7gu']
+[2024-11-29T02:47:33.143+0000] {standard_task_runner.py:63} INFO - Started process 1562 to run task
+[2024-11-29T02:47:33.144+0000] {standard_task_runner.py:91} INFO - Job 255: Subtask train
+[2024-11-29T02:47:33.197+0000] {task_command.py:426} INFO - Running <TaskInstance: Electricity_predict.train manual__2024-11-29T02:47:27.145683+00:00 [running]> on host fd43cd87157f
+[2024-11-29T02:47:33.280+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Electricity_predict' AIRFLOW_CTX_TASK_ID='train' AIRFLOW_CTX_EXECUTION_DATE='2024-11-29T02:47:27.145683+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-29T02:47:27.145683+00:00'
+[2024-11-29T02:47:33.281+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-29T02:47:33.282+0000] {logging_mixin.py:188} INFO - 'SnowflakeConnection' object has no attribute 'execute'
+[2024-11-29T02:47:33.282+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-29T02:47:33.283+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/energy_usage_prediction.py", line 44, in train
+    cur.execute(create_view_sql)
+    ^^^^^^^^^^^
+AttributeError: 'SnowflakeConnection' object has no attribute 'execute'
+[2024-11-29T02:47:33.301+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=Electricity_predict, task_id=train, run_id=manual__2024-11-29T02:47:27.145683+00:00, execution_date=20241129T024727, start_date=20241129T024733, end_date=20241129T024733
+[2024-11-29T02:47:33.317+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 255 for task train ('SnowflakeConnection' object has no attribute 'execute'; 1562)
+[2024-11-29T02:47:33.358+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-29T02:47:33.369+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: energy_historical_forecast_data
+    description: "Final output table with energy and weather metrics"
+    columns:
+      - name: period
+        description: "Date"
+        tests:
+          - not_null
+      
